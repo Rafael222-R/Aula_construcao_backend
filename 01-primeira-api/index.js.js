@@ -17,6 +17,10 @@ app.post("/teste", (req, res) => {
     res.send("TESTE POST OK!")
 })
 
+app.get('/aluno', (req, res) => {
+    res.send('rafael')
+})
+
 // startando servidor(backend - api) para escutar comunicações
 // na porta 3000
 app.listen(3000, () => {
