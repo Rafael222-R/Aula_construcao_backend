@@ -1,6 +1,4 @@
-console.log ("Testando ");
-
-console.log ("Aula");
+console.log ("Teste");
 
 var nome = "Rafael Dias ";
 
