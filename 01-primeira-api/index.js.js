@@ -56,8 +56,32 @@ app.get('/pessoa', (req, res) => {
 })
 
 /* PARA CASA
-1. Faça uma api que receba quatro notas de um aluno, calcule e responda a média aritmética das notas e a mensagem de aprovado para média superior ou igual a 7.0 ou a mensagem de reprovado para média inferior a 7.0. 
+1. Faça uma api que receba quatro notas de um aluno, calcule e responda a média aritmética das notas e a mensagem
+ de aprovado para média superior ou igual a 7.0 ou a mensagem de reprovado para média inferior a 7.0. 
 */
+
+
+// codifo copiado do chat gpt
+app.post('/calcular-media/:nota1/:nota2/:nota3/:nota4', (req, res) => {
+    console.log(req.params)
+    const nota1 = req.params.nota1
+    const nota2 = req.params.nota2
+    const nota3 = req.params.nota3
+    const nota4 = req.params.nota4
+
+    if (nota1 === undefined || nota2 === undefined || nota3 === undefined || nota4 === undefined) {
+        return res.status(400).json({ erro: 'As quatro notas devem ser fornecidas.' });
+    }
+
+    if ([nota1, nota2, nota3, nota4].every(nota => typeof nota == 'number')) {
+        return res.status(400).json({ erro: 'As notas devem ser números.' });
+    }
+
+    const media = (nota1 + nota2 + nota3 + nota4) / 4;
+    const mensagem = media >= 7.0 ? 'Aprovado' : 'Reprovado';
+
+    res.send({ media, mensagem });
+});
 
 
 
