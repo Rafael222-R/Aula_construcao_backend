@@ -18,8 +18,24 @@ app.post("/teste", (req, res) => {
 })
 
 app.get('/aluno', (req, res) => {
-    res.send('rafael')
+    res.send('Aluno: Rafael Dias - Matricula: 23114290012')
 })
+// codigo feito pelo professor na sala de aula
+app.get("/pessoa/:nome/:idade", (req, res) => {
+    console.log(req.params)
+    const nomePessoa = req.params.nome
+    const idadePessoa = req.params.idade
+    let mais18 = null
+    if (idadePessoa >= 18) {
+        mais18 = "Maior de idade "
+    } 
+    else {
+        mais18 = "Menor de idade "
+    }
+    res.send(`
+    Olá ${nomePessoa}! Tudo Bem?`
+    )
+}) 
 
 // startando servidor(backend - api) para escutar comunicações
 // na porta 3000
