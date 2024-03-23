@@ -1,8 +1,19 @@
 // importando modulo do express
-const express = require('express')
+const express = require('express');
 
 // cria uma aplicação express
-const app = express()
+const app = express();
+
+//middlewars -> intermediario
+app.use((req, res, next) =>{
+
+    const data = new Date().toISOString()
+    console.log(`Data: ${data}`)
+    //console.log("REQUISIÇÃO BATEU NO INTERMEDIARIO");
+    next()
+})
+
+app.use(express.json());
 
 // construir a lógica (o contrato da minha api)
 app.get("/hello", (req, res) => {
@@ -60,31 +71,47 @@ app.get('/pessoa', (req, res) => {
  de aprovado para média superior ou igual a 7.0 ou a mensagem de reprovado para média inferior a 7.0. 
 */
 
+// resolução feita pelo professor
 
-// codifo copiado do chat gpt
-app.post('/calcular-media/:nota1/:nota2/:nota3/:nota4', (req, res) => {
-    console.log(req.params)
-    const nota1 = req.params.nota1
-    const nota2 = req.params.nota2
-    const nota3 = req.params.nota3
-    const nota4 = req.params.nota4
+app.get('/exercicio1' , (req, res) => {
+    console.log(req.query)
+    
+    const nota1 = Number(req.query.nota1)
+    const nota2 = Number(req.query.nota2)
+    const nota3 = Number(req.query.nota3)
+    const nota4 = Number(req.query.nota4)
 
-    if (nota1 === undefined || nota2 === undefined || nota3 === undefined || nota4 === undefined) {
-        return res.status(400).json({ erro: 'As quatro notas devem ser fornecidas.' });
-    }
-
-    if ([nota1, nota2, nota3, nota4].every(nota => typeof nota == 'number')) {
-        return res.status(400).json({ erro: 'As notas devem ser números.' });
-    }
-
-    const media = (nota1 + nota2 + nota3 + nota4) / 4;
-    const mensagem = media >= 7.0 ? 'Aprovado' : 'Reprovado';
-
-    res.send({ media, mensagem });
-});
+    const media = (nota1 + nota2 + nota3 + nota4) / 4 
+    
+    const mensagem = media >= 7 ? "Aprovado" : "Reprovado"
 
 
+res.send(`
+    Média : ${media.toFixed(1)} 
+    Resultado : ${mensagem}
 
+`)
+}) 
+
+app.post('/exercicio1' , (req, res) => {
+    console.log(req.body)
+    
+    const nota1 = (req.body.nota1)
+    const nota2 = (req.body.nota2)
+    const nota3 = (req.body.nota3)
+    const nota4 = (req.body.nota4)
+
+    const media = (nota1 + nota2 + nota3 + nota4) / 4 
+    
+    const mensagem = media >= 7 ? "Aprovado" : "Reprovado"
+
+
+res.send(`
+    Média : ${media.toFixed(1)} 
+    Resultado : ${mensagem}
+
+`)
+}) 
 
 
 // startando servidor(backend - api) para escutar comunicações
