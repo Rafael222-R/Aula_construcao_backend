@@ -18,6 +18,7 @@ router.get('/contatos/:id', (req, res) => {
     res.json(listaContatos[id])
 
 })
+
 // CREATE -> CRIAR UM CONTATO
 
 router.post("/contatos", (req, res) => {
@@ -33,5 +34,11 @@ router.delete("/contatos/:id", (req, res) => {
     res.json({mensagem : "Contato Excluido com Sucesso!"})
 })
 
+router.put("/contatos/:id", (req, res) => {
+    const id = req.params.id
+    const contatoAlterado = req.body
+    listaContatos[id] = contatoAlterado.nome
+    res.json({mensagem : "Contato Alterado com Sucesso!!"})
+})
 
 module.exports = router
