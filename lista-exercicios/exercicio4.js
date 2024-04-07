@@ -7,35 +7,17 @@ escrever um script para ler o custo de fábrica de um carro, calcular e escrever
 
     const prompt = require('prompt-sync')();
 
-// Função para calcular o custo final ao consumidor
-function calcularCustoFinal(custoFabrica) {
-    // Definindo os percentuais do distribuidor e dos impostos
-    const percentualDistribuidor = 28;
-    const percentualImpostos = 45;
+var custoFabrica = Number(prompt("Digite o custo de fábrica do carro: "));
 
-    // Calculando o valor do distribuidor
-    const valorDistribuidor = custoFabrica * (percentualDistribuidor / 100);
 
-    // Calculando o valor dos impostos
-    const valorImpostos = custoFabrica * (percentualImpostos / 100);
+var percentualDistribuidor = 0.28;
+var percentualImpostos = 0.45;
 
-    // Calculando o custo final ao consumidor
-    const custoFinal = custoFabrica + valorDistribuidor + valorImpostos;
 
-    return custoFinal;
-}
+var custoDistribuidor = custoFabrica * percentualDistribuidor;
+var custoImpostos = custoFabrica * percentualImpostos;
+var custoConsumidor = custoFabrica + custoDistribuidor + custoImpostos;
 
-// Função principal
-function main() {
-    // Entrada de dados
-    const custoFabrica = parseFloat(prompt("Informe o custo de fábrica do carro: "));
+console.log("O custo final do carro ao consumidor é: R$ " + custoConsumidor.toFixed(2));
 
-    // Calculando o custo final ao consumidor
-    const custoFinal = calcularCustoFinal(custoFabrica);
 
-    // Saída de dados
-    console.log("O custo final ao consumidor é: R$ " + custoFinal.toFixed(2));
-}
-
-// Chamada da função principal
-main();

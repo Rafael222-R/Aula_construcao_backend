@@ -6,33 +6,16 @@ e o imposto, e calcular e escrever o custo final ao consumidor.
 
 
     const prompt = require("prompt-sync")();
-// Função para calcular o custo final ao consumidor
-function calcularCustoFinal(custoFabrica, percentualDistribuidor, percentualImpostos) {
-    // Calculando o valor do distribuidor
-    const valorDistribuidor = custoFabrica * (percentualDistribuidor / 100);
+  
+var custoFabrica = Number(prompt("Digite o custo de fábrica do carro: "));
+var percentualDistribuidor = Number(prompt("Digite a porcentagem do distribuidor (%): "));
+var percentualImpostos = Number(prompt("Digite a porcentagem de impostos (%): "));
 
-    // Calculando o valor dos impostos
-    const valorImpostos = custoFabrica * (percentualImpostos / 100);
+var custoDistribuidor = custoFabrica * (percentualDistribuidor / 100);
+var custoImpostos = custoFabrica * (percentualImpostos / 100);
 
-    // Calculando o custo final ao consumidor
-    const custoFinal = custoFabrica + valorDistribuidor + valorImpostos;
+var custoConsumidor = custoFabrica + custoDistribuidor + custoImpostos;
 
-    return custoFinal;
-}
 
-// Função principal
-function main() {
-    // Entrada de dados
-    const custoFabrica = parseFloat(prompt("Informe o custo de fábrica do carro: "));
-    const percentualDistribuidor = parseFloat(prompt("Informe o percentual do distribuidor (em %): "));
-    const percentualImpostos = parseFloat(prompt("Informe o percentual de impostos (em %): "));
+console.log("O custo final do carro ao consumidor é: R$ " + custoConsumidor.toFixed(2));
 
-    // Calculando o custo final ao consumidor
-    const custoFinal = calcularCustoFinal(custoFabrica, percentualDistribuidor, percentualImpostos);
-
-    // Saída de dados
-    console.log("O custo final ao consumidor é: R$ " + custoFinal.toFixed(2));
-}
-
-// Chamada da função principal
-main();

@@ -7,7 +7,7 @@ Escrever um script que leia o número de carros por ele vendidos, o valor total 
 const prompt = require("prompt-sync")();
 
 var carrosvendidos = Number(prompt("Informe o Total de Carros Vendidos: "));
-var totalvendas = Number(prompt("Insira o Valor de suas Vendas: R$ "));
+var totalvendas = Number(prompt("Insira o Valor Total de suas Vendas: R$ "));
 var salariofixo = Number(prompt("Insira o Seu Salario Fixo: R$ "));
 var valorporcarro = Number(prompt("Insira o Valor Que Receber por carro Vendido: R$ "));
 
@@ -16,21 +16,3 @@ var comissaoTotalVendas = 0.05 * totalvendas;
 var Salario = salariofixo + (carrosvendidos * (valorporcarro + comissaofixa) + comissaoTotalVendas);
 
 console.log("Seu Salario Do mês é : R$" + Salario);
-
-/*
-const prompt = require("prompt-sync")();
-
-// Leitura dos dados
-var numeroCarrosVendidos = parseInt(prompt("Digite o número de carros vendidos:"));
-var valorTotalVendas = parseFloat(prompt("Digite o valor total das vendas:"));
-var salarioFixo = parseFloat(prompt("Digite o salário fixo:"));
-var valorPorCarroVendido = parseFloat(prompt("Digite o valor por carro vendido:"));
-
-// Cálculo do salário final
-var comissaoFixaPorCarro = parseFloat(prompt("Digite a comissão fixa por carro vendido:"));
-var comissaoPorVendas = 0.05 * valorTotalVendas;
-var salarioFinal = salarioFixo + (numeroCarrosVendidos * (valorPorCarroVendido + comissaoFixaPorCarro)) + comissaoPorVendas;
-
-// Exibição do resultado
-console.log("O salário final do vendedor é: R$ " + salarioFinal.toFixed(2));
-*/
