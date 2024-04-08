@@ -217,37 +217,41 @@ app.post ('/exercicio9', (req, res) => {
     console.log (salarioMinimo, numeroHorasTrabalhadas, numeroDependentes, numeroHorasExtrasTrabalhadas)
 
     var valorHoraTrabalhada = (salarioMinimo / 5) ;
+        console.log (valorHoraTrabalhada);
     var salarioMes = numeroHorasTrabalhadas * valorHoraTrabalhada ; 
+    console.log (salarioMes);
     var acrescimoPorDependente = numeroDependentes * 32;
+    console.log (acrescimoPorDependente);
     var valorHoraExtraTrabalhada = (valorHoraTrabalhada * (1 + 0.5)) * numeroHorasExtrasTrabalhadas;
+    console.log (valorHoraExtraTrabalhada);
     var salarioBruto = salarioMes + acrescimoPorDependente + valorHoraExtraTrabalhada; 
+    console.log (salarioBruto);
 
     var IRPF = 0 
-    switch (salarioBruto) {
-        case salarioBruto < 2000:
+    switch (true) {
+        case salarioBruto <= 2000:
             IRPF = 0 ; 
             break;
-        case salarioBruto < 5000:
-            IRPF = 0.1;
+        case salarioBruto <= 5000:
+            IRPF = salarioBruto * 0.1;
             break;
         default : 
-            salarioBruto > 5000 ;
-            IRPF = 0.2;
+            IRPF = salarioBruto *  0.2;
             break;
 
     }
 
-    var salarioLiquido = salarioBruto - (salarioBruto * IRPF ) ;
-    var gratificacao = 0 ;
-        switch(salarioLiquido) {
-            case salarioLiquido < 3500:
-                gratificacao = 1000;
-                break;
-            case salarioLiquido > 3500:
-                gratificacao = 500;
-                break;
+    console.log (IRPF);
 
+    var salarioLiquido = salarioBruto - IRPF;
+    var gratificacao = 0 ;
+        if (salarioLiquido <= 3500){
+            gratificacao = 1000
+        } else {
+            gratificacao = 500
         }
+        
+        console.log (gratificacao);
     var salarioReceber = salarioLiquido + gratificacao;
 
 return res.json({salarioReceber})
