@@ -4,10 +4,8 @@ const app = express()
 const port = 3000
 // middlewares
 app.use(express.json())
-// lógica -> contrato
-app.get('/hello', (req, res) => {
-    res.send("Hello World")
-})
+
+
 // 1. Faça uma api para calcular o estoque médio de uma peça, sendo que ESTOQUE MÉDIO = 
 // (QUANTIDADE MÍNIMA + QUANTIDADE MÁXIMA) /2.
 app.post('/exercicio1', (req, res) => {
@@ -33,11 +31,7 @@ caso o funcionário não tenha direito ao aumento.
 app.post('/exercicio2', (req, res) => {
     const {salario} = req.body
     console.log(salario)
- /*
-    if (!salario) {
-        return res.status(400).json({ error: 'Por favor, forneça o salário do funcionário.' });
-    }
-*/
+
     const salarioFloat = Number(salario);
 
     if (salarioFloat < 1000) {
@@ -258,7 +252,7 @@ return res.json({salarioReceber})
 })
     
 
-// start da aplicaão na porta definida
+// start da aplicacão na porta definida
 app.listen(port, () => {
     console.log("Aplicação iniciada em http://localhost:3000")
 }) 
