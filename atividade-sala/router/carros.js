@@ -24,20 +24,31 @@ const listaCarros = [
 
 
 router.get("/carros", (req, res) => {
+
     res.json(listaCarros)
 })
 
+
+
 router.get("/carros/:id", (req, res) => {
     const id = req.params.id
+    const carro = listaCarros.find(carro => carro.id == id )
+
     if (carro) {
         return res.json(carro)
     }
     return res.status(404).json({mensagem: "Carro não encontrado"})
 })
 
+
+
 router.post("/carros", (req, res) => {
     const carro = req.body
     
+    if (!carro.marca || !carro.modelo  || !carro.cor || !carro.valor) {
+        return res.status(400).json({mensagem: "E necessario informa a marca,modelo,cor e valor do Carro"})
+    }
+
     const NovoCarro = {
         id:listaCarros.length +1,
         marca: carro.marca,
@@ -48,14 +59,27 @@ router.post("/carros", (req, res) => {
 
     listaCarros.push(NovoCarro)
 
-     res.json(NovoCarro)
+    return res.status(201).json({
+        mensagem: "Novo carros Criado",
+        NovoCarro
+    })
 })
+
+
 
 router.put("/carros/:id", (req, res) => {
     const id = req.params.id
     const attCarro = req.body
 
+if (!attCarro.marca || !attCarro.modelo || !attCarro.cor || !attCarro.valor) {
+    return res.status(400).json({mensagem: " E necessario informa a marca,modelo,cor e valor do Carro"})
+}
+
     const index = listaCarros.findIndex(attCarro => attCarro.id == id)
+
+    if(index == -1) {
+        return res.status(404).json({mensagem: " Carro não encontrado"})
+    }
 
     const carroAtualizado = {
         id: Number(id),
@@ -66,15 +90,25 @@ router.put("/carros/:id", (req, res) => {
     }
 
 listaCarros[index] = carroAtualizado
-    res.json({mensagem:"Carro Atualizado com Sucesso!"})
+
+   return  res.status(201).json({
+    mensagem:"Carro Atualizado com Sucesso!",
+    carroAtualizado
+
+})
 
 })
 
 router.delete("/carros/:id", (req, res) => {
     const id = req.params.id
     const index = listaCarros.findIndex(Carro => Carro.id == id)
+
+if (index == -1) {
+    return res.status(404).json({mensagem: "Carro não encontrado"})
+}
+
     listaCarros.splice(index, 1)
-    res.json({mensagem: "Carro excluído com sucesso"})
+    return res.status(201).json({mensagem: "Carro excluído com sucesso"})
 })
 
 module.exports =  router
