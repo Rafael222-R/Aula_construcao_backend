@@ -30,12 +30,50 @@ router.get("/pessoas/:id" , (req, res) =>{
         res.json(cadastro)
 })
 
-router.put("/pessoas/:id", (req,res) => {
-    const id = req.params.id
-    const cadastroAtualizado = listaPessoas.findIndex(cadastroAtualizado => cadastroAtualizado.id == id)
-    res.json("cadastro atualizado com Sucesso")
+router.post("/pessoas", (req,res) => {
+    const dadosPessoas = req.body
+
+    const novaPessoas = {
+        id: listaPessoas.length + 1,
+        nome: dadosPessoas.nome,
+        idade: dadosPessoas.idade,
+        email: dadosPessoas.email,
+        telefone: dadosPessoas.telefone
+
+    }
+
+    listaPessoas.push(novaPessoas)
+    res.json({mensagem: "cadastro atualizado com Sucesso"})
 })
 
+router.put("/pessoas/:id", (req, res) =>{
+    const id = req.params.id
+    const atualizarPessoas = req.body
+
+    const index = listaPessoas.findIndex(pessoa => pessoa.id == id);
+
+    const novaPessoas = {
+        id:Number(id),
+        nome: atualizarPessoas.nome,
+        idade: atualizarPessoas.idade,
+        email: atualizarPessoas.email,
+        telefone: atualizarPessoas.telefone
+    }
+
+    listaPessoas[index] = novaPessoas
+
+    res.json({mensagem: "Cadastro Atualizado com Sucesso!"})
+
+
+})
+
+router.delete("/pessoas/:id", (req,res) => {
+    const id = req.params.id
+    const index = listaPessoas.findIndex(pessoa => pessoa.id == id);
+
+    listaPessoas.splice(index, 1)
+    res.json({mensagem:" Cadastro Excluido com Sucesso!"})
+})
 
 
 
