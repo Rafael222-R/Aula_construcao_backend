@@ -1,0 +1,24 @@
+{
+  "name": "11-api-tarefas-mongodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+<<<<<<< HEAD
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+=======
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+>>>>>>> 7dbc500f3c27e195132b8508c7295759a5ac1b82
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.4",
+    "nodemon": "^3.1.0"
+  }
+}
