@@ -1,11 +1,13 @@
 const express = require('express')
 const router = express.Router()
-
+// Controllers
 const CargoController = require('../controllers/CargoController')
 
+//validators
+const { validarCargo } = require('../Validators/cargoValidator')
 
 // Cargo
-router.post('/cargos', CargoController.criar)
+router.post('/cargos', validarCargo, CargoController.criar)
 
 
 
