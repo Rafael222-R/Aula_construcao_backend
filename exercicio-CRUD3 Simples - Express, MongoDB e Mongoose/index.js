@@ -11,7 +11,7 @@ const DB_HOST = process.env.DB_HOST
 const DB_NAME = process.env.DB_NAME
 
 
-mongoose.connect(`mongodb+srv://Banco_atividade3:1KXLFoPCQCC5l0ah@blackiesb.odubskr.mongodb.net/?retryWrites=true&w=majority&appName=blackiesb`)
+mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority&appName=blackiesb`)
     .then(() => console.log("Conectado ao banco Mongo!"))
     .catch(err => console.log("Erro ao conectar ao banco Mongo: ", err))
 
