@@ -3,10 +3,11 @@ const router = express.Router()
 // Controllers
 const CargoController = require('../controllers/CargoController')
 const departamentoControllers = require('../controllers/departamentosControllers')
+const funcionarioController = require('../controllers/FuncionarioController')
 //validators
 const { validarCargo } = require('../Validators/cargoValidator')
 const { validarDepartamento } = require('../Validators/departamentosValidator')
-
+const { validarFuncionario } = require('../Validators/FuncionarioValidator')
 
 // Cargo
 router.get('/cargos', CargoController.buscarTodos)
@@ -19,7 +20,11 @@ router.delete('/cargos/:id', CargoController.excluir)
 
 
 // Funcionarios
-
+router.get('/funcionarios', funcionarioController.buscarTodos)
+router.get('/funcionarios/:id', funcionarioController.buscarPorID)
+router.post('/funcionarios', validarFuncionario, funcionarioController.criar)
+router.put('/funcionarios/:id', validarFuncionario, funcionarioController.atualizar)
+router.delete('/funcionarios/:id', funcionarioController.excluir)
 
 
 // Departamentos
