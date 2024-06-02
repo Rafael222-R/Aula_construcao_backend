@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose")
 
 const schema = new mongoose.Schema({
     nome: {
@@ -7,14 +7,49 @@ const schema = new mongoose.Schema({
     },
     descricao: {
         type: String,
-        required: false
+        require: false
     },
     salario: {
         type: Number,
         required: true
     }
-}, { timestamps: true })
+}, {timestamps: true})
 
 const Cargo = mongoose.model('cargo', schema)
 
 module.exports = Cargo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

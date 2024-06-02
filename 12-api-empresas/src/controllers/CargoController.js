@@ -1,4 +1,4 @@
-const Cargo = require('../models/Cargo')
+const Cargo = require("../models/Cargo")
 
 async function buscarTodos(req, res) {
     res.json(await Cargo.find())
@@ -6,10 +6,10 @@ async function buscarTodos(req, res) {
 
 async function buscarPorID(req, res) {
     const cargo = await Cargo.findById(req.params.id)
-    if (cargo) {
+    if(cargo) {
         res.json(cargo)
     } else {
-        res.status(404).json({ mensagem: "Cargo não encontrado!" })
+        res.status(404).json({mensagem: "Cargo não encontrado"})
     }
 }
 
@@ -48,10 +48,12 @@ async function excluir(req, res) {
 }
 
 
+
 module.exports = {
     buscarTodos,
     buscarPorID,
     criar,
     atualizar,
     excluir
+
 }

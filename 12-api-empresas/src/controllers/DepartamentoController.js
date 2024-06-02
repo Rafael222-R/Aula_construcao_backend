@@ -1,4 +1,4 @@
-const Departamento = require("../models/Departamento")
+const Departamento = require('../models/Departamento')
 
 async function buscarTodos(req, res) {
     res.json(await Departamento.find())
@@ -9,12 +9,12 @@ async function buscarPorID(req, res) {
     if (departamento) {
         res.json(departamento)
     } else {
-        res.status(404).json({ mensagem: "Cargo não encontrado!" })
+        res.status(404).json({ mensagem: "Departamento não encontrado!" })
     }
 }
 
 async function criar(req, res) {
-    const departamento = new Departamento (req.body)
+    const departamento = new Departamento(req.body)
     const departamentoCriado = await departamento.save()
     res.status(201).json(departamentoCriado)
 }

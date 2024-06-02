@@ -1,4 +1,4 @@
- const yup = require('yup')
+const yup = require('yup')
 
 const schema = yup.object().shape(
 
