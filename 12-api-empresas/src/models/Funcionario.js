@@ -55,3 +55,6 @@ const schema = new mongoose.Schema(
 const Funcionario = mongoose.model('funcionario', schema)
 
 module.exports = Funcionario
+
+
+// subir

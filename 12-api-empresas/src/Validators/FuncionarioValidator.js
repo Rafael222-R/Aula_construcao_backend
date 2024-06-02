@@ -58,3 +58,6 @@ function validarFuncionario(req, res, next) {
 module.exports = {
     validarFuncionario
 }
+
+
+//subir
