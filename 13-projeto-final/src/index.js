@@ -8,6 +8,9 @@ DBConnect()
 app.use(express.json())
 
 
+const Routes = require("./routes/routes")
+app.use(Routes)
+
 app.use("/test", (req, res) => {
     res.send('Tudo Funcionando ate aqui')
 })

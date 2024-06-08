@@ -1,10 +1,11 @@
-const mongoose = require('mangoose')
+const mongoose = require('mongoose')
+
 function validarID(req, res, next) {
-    const isValid = mongoose.Types.ObjectID.isValid(req.params.id)
+    const isValid = mongoose.Types.ObjectId.isValid(req.params.id)
     if (isValid) {
-    next()
+        next()
     } else {
-    return res.status(400).json({mensagem:  "ID inválido"})
+        return res.status(400).json({ mensagem: "ID inválido" })
     }
 }
 
