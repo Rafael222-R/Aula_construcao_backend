@@ -2,18 +2,41 @@ const Pedido = require('../models/Pedido')
 
 
 async function criar(req, res) {
+
     const pedido = new Pedido(req.body)
     const pedidoCriado = await pedido.save()
     res.status(201).json(pedidoCriado)
+    
 }
 
 async function buscarTodos(req, res) {
-    res.json(await Pedido.find().populate(['funcionario', 'cliente'])) 
+    res.json(await Pedido.find() 
+    .populate({
+        path: 'funcionario',
+        select: 'nome'
+    })
+    .populate({
+        path: 'cliente',
+        select: 'nome'  
+    })
+    .populate({
+        path: "produto",
+        select: 'nome'
+    })
+
+)
 }
 
 
 async function buscarPorID(req, res) {
-    const pedido = await Pedido.findById(req.params.id).populate(['funcionario', 'cliente']) 
+    const pedido = await Pedido.findById(req.params.id).populate({
+        path: 'funcionario',
+        select: 'nome'  // Seleciona apenas o campo 'nome' do documento 'funcionario'
+    })
+    .populate({
+        path: 'cliente',
+        select: 'nome'  // Seleciona apenas o campo 'nome' do documento 'cliente'
+    }); 
     if (pedido) {
         res.json(pedido)
     } else {
