@@ -43,12 +43,7 @@ const schema = new mongoose.Schema(
             type: mongoose.Types.ObjectId,
             ref: 'cargo',
             required: false
-        }/*,
-        departamento: {
-            type: mongoose.Types.ObjectId,
-            ref: 'departamento',
-            required: false
-        },*/
+        }
     
     },
      { timestamps: true} )

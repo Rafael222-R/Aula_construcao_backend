@@ -22,7 +22,7 @@ const schema = new mongoose.Schema (
             bairro: String,
             logradouro: String,
             numero: String,
-            complemento: StringS
+            complemento: String
         },
         email: {
             type: String,

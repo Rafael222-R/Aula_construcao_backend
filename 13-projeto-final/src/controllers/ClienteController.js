@@ -25,12 +25,12 @@ async function atualizar(req, res) {
     if (clienteAtualizado) {
         res.json(
             {
-                mensagem: "Cargo atualizado com sucesso!",
+                mensagem: "Cliente atualizado com sucesso!",
                 clienteAtualizado
             }
         )
     } else {
-        res.status(404).json({ mensagem: "Cargo não encontrado!" })
+        res.status(404).json({ mensagem: "Cliente não encontrado!" })
     }
 }
 
@@ -39,12 +39,12 @@ async function excluir(req, res) {
     if (clienteExcluido) {
         res.json(
             {
-                mensagem: "Cargo excluido com sucesso!",
+                mensagem: "Cliente excluido com sucesso!",
                 clienteExcluido
             }
         )
     } else {
-        res.status(404).json({ mensagem: "Cargo não encontrado!" })
+        res.status(404).json({ mensagem: "Cliente não encontrado!" })
     }
 }
 

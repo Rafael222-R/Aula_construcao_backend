@@ -2,11 +2,11 @@ const Funcionario = require('../models/Funcionario')
 
 
 async function buscarTodos(req, res) {
-    res.json(await Funcionario.find().populate(['cargo'])) // tirer o Departamento
+    res.json(await Funcionario.find().populate(['cargo']))
 }
 
 async function buscarPorID(req, res) {
-    const funcionario = await Funcionario.findById(req.params.id).populate(['cargo']) // tirei o Depertamento
+    const funcionario = await Funcionario.findById(req.params.id).populate(['cargo']) 
     if (funcionario) {
         res.json(funcionario)
     } else {
