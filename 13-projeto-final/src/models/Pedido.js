@@ -12,11 +12,20 @@ const schema = new mongoose.Schema(
         ref:'cliente',
         required: true
     },
-    produto: {
+    items : [{
+
+     produto: {
         type: mongoose.Types.ObjectId,
         ref:'produto',
         required: true
+    },
+    quantidade: {
+        type: Number,
+        required: true
     }
+
+    }]
+   
 } , {timestamps : true})
 
 const Pedido = mongoose.model('pedido', schema)
