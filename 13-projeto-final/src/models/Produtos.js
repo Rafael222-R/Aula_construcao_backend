@@ -14,6 +14,10 @@ const schema = new mongoose.Schema (
     codigo_barras : {
         type: String,
         require: true
+    },
+    preco : {
+        type : Number,
+        require: true
     }
 }, { timestamps: true})
 

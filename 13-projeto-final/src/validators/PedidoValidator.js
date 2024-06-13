@@ -9,9 +9,6 @@ const schema = yup.object().shape(
         cliente: yup
             .string("Campo nome precisa ser um texto")
             .required("cliente obrigatorio"),
-        produto: yup
-            .string("Campo nome precisa ser um texto")
-            .required('Insira um Produto')
             
     }
 )

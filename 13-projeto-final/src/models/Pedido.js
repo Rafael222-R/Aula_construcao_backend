@@ -12,19 +12,20 @@ const schema = new mongoose.Schema(
         ref:'cliente',
         required: true
     },
-    items : [{
+  
+    items: [{
+        produto: {
+            type: mongoose.Types.ObjectId,
+            ref: 'produto', // Supondo que exista um modelo de Produto
+            required: true
+        }
+    }] ,
 
-     produto: {
-        type: mongoose.Types.ObjectId,
-        ref:'produto',
-        required: true
-    },
-    quantidade: {
-        type: Number,
-        required: true
-    }
+   valorTotal: {
+    type: Number,
+    required: true
+   }
 
-    }]
    
 } , {timestamps : true})
 

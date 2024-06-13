@@ -20,8 +20,9 @@ async function buscarTodos(req, res) {
         select: 'nome'  
     })
     .populate({
-        path: "produto",
-        select: 'nome'
+        path: "items.produto",
+        select: "nome"
+        
     })
 
 )
