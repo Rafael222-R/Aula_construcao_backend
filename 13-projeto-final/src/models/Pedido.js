@@ -18,15 +18,13 @@ const schema = new mongoose.Schema(
             type: mongoose.Types.ObjectId,
             ref: 'produto', // Supondo que exista um modelo de Produto
             required: true
+        },
+        quantidade: {
+            type: Number,
+            required: true,
+            min: 1
         }
-    }] ,
-
-   valorTotal: {
-    type: Number,
-    required: true
-   }
-
-   
+    }] 
 } , {timestamps : true})
 
 const Pedido = mongoose.model('pedido', schema)

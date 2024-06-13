@@ -1,12 +1,14 @@
 const Pedido = require('../models/Pedido')
+const Produto = require('../models/Produtos')
 
 
 async function criar(req, res) {
-
-    const pedido = new Pedido(req.body)
+    
+    const {funcionario, cliente, items } = req.body
+    const pedido = new Pedido( {funcionario, cliente, items })
     const pedidoCriado = await pedido.save()
     res.status(201).json(pedidoCriado)
-    
+ 
 }
 
 async function buscarTodos(req, res) {
@@ -26,6 +28,7 @@ async function buscarTodos(req, res) {
     })
 
 )
+
 }
 
 

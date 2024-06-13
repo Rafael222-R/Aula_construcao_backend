@@ -21,6 +21,10 @@ const schema = new mongoose.Schema (
     }
 }, { timestamps: true})
 
+
 const Produto = mongoose.model('produto', schema)
+
+
+
 
 module.exports = Produto
