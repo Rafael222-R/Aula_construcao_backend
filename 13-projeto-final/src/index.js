@@ -7,6 +7,11 @@ DBConnect()
 
 app.use(express.json())
 
+const autenticacaoRoutes = require('./routes/autenticacao.routes')
+app.use(autenticacaoRoutes)
+
+const { checkToken } = require('./validators/AutenticacaoValidator')
+
 
 const Routes = require("./routes/routes")
 app.use(Routes)
