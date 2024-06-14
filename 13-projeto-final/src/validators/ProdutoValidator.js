@@ -11,7 +11,13 @@ const schema = yup.object().shape(
         codigo_barras: yup
         .string("Campo nome precisa ser um texto")
         .min(12, "O codigo de Barras deve conter no minimo 12 digitos")
-        .required("Campo Codigo de Barras é Obrigatorio")
+        .required("Campo Codigo de Barras é Obrigatorio"),
+        peso: yup
+        .number("Campo salario precisa ser numerico")
+        .required("Campo peso é Obrigatorio"),
+        preco: yup
+        .number("Campo salario precisa ser numerico")
+        .required("Campo Preço  é Obrigatorio")
 
     }
 )

@@ -11,7 +11,11 @@ const schema = yup.object().shape(
         salario: yup
         .number("Campo salario precisa ser numerico")
         .min(1412, "Compo salario precisa ser maior que o salario minimo")
-        .required("Campo Salario é Obrigatorio")
+        .required("Campo Salario é Obrigatorio"),
+        habilidade: yup
+        .string("Campo nome precisa ser um texto"),
+        status_cargo: yup
+        .string("Campo nome precisa ser um texto")
 
     }
 )

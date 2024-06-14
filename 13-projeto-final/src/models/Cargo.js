@@ -12,6 +12,15 @@ const schema = new mongoose.Schema({
     salario: {
         type: Number,
         required: true
+    },
+    habilidade:{
+        type: String,
+        require: false
+    },
+    status_cargo: {
+
+        type: String,
+        required:true
     }
 }, {timestamps: true})
  

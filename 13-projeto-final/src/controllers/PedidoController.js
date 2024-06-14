@@ -2,10 +2,23 @@ const Pedido = require('../models/Pedido')
 const Produto = require('../models/Produtos')
 
 
+
+
 async function criar(req, res) {
     
     const {funcionario, cliente, items } = req.body
     const pedido = new Pedido( {funcionario, cliente, items })
+
+    if (pedido.isModified('items')) {
+        let total = 0;
+
+        for (const item of pedido.items) {
+            total += item.quantidade * Produto.preco;
+        }
+
+        pedido.valorTotal = total;
+    }
+
     const pedidoCriado = await pedido.save()
     res.status(201).json(pedidoCriado)
  
@@ -76,6 +89,8 @@ async function excluir(req, res) {
         res.status(404).json({ mensagem: "Funcionario não encontrado!" })
     }
 }
+
+
 
 module.exports = {
     buscarTodos,

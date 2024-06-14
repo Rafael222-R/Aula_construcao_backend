@@ -12,9 +12,8 @@ app.use(autenticacaoRoutes)
 
 const { checkToken } = require('./validators/AutenticacaoValidator')
 
-
 const Routes = require("./routes/routes")
-app.use(Routes)
+app.use( checkToken,Routes)
 
 app.use("/test", (req, res) => {
     res.send('Tudo Funcionando ate aqui')

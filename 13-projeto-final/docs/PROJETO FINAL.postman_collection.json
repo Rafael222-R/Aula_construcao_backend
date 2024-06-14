@@ -1,0 +1,781 @@
+{
+	"info": {
+		"_postman_id": "9085f0eb-d9fc-49b3-93fa-b6ff5203390a",
+		"name": "PROJETO FINAL",
+		"description": "Trabalho de fim de Semestre, para Colocar em pratica tudo aquilo que foi aprendido dentro desse ciclo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33176061"
+	},
+	"item": [
+		{
+			"name": "Autenticacao",
+			"item": [
+				{
+					"name": "Registar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"nome\": \"gustavo3\",\r\n    \"email\": \"gustavo3@teste.com\",\r\n     \"senha\": \"1234\"\r\n        \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/registrar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"registrar"
+							]
+						},
+						"description": "Area de Registro"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiZ3VzdGF2bzMiLCJlbWFpbCI6Imd1c3Rhdm8zQHRlc3RlLmNvbSIsImlhdCI6MTcxODMzMDg5NiwiZXhwIjoxNzE4MzMxNDk2fQ.C0vFYryervu0XLRb26jSZum0zOgyXw5jY7rodqIja_A\"",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \"email\": \"gustavo3@teste.com\",\r\n    \"senha\": \"1234\"\r\n  \r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "local para se fazer o login depois que estiver Registrado"
+					},
+					"response": []
+				}
+			],
+			"description": "O Usuario tem que se cadastra para que possa se logan na Api"
+		},
+		{
+			"name": "Cargo",
+			"item": [
+				{
+					"name": "CRIAR CARGO",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Manu\",\r\n    \"descricao\": \"Cobrança\",\r\n    \"salario\": 1600,\r\n    \"habilidade\": \"Comunicação\",\r\n    \"status_cargo\": \"ativo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/cargos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cargos"
+							]
+						},
+						"description": "Criação de Cargos"
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR TODOS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cargos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cargos"
+							]
+						},
+						"description": "Buscar de todos cargos criado"
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR POR ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cargos/6663955ecf81239cf3910210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cargos",
+								"6663955ecf81239cf3910210"
+							]
+						},
+						"description": "Buscar de todos cargos por ID"
+					},
+					"response": []
+				},
+				{
+					"name": "ATUALIZAR CARGO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"RAFEL DIAS\",\r\n    \"descricao\": \"VENDEDOR\",\r\n    \"salario\": 2500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/cargos/6663955ecf81239cf3910210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cargos",
+								"6663955ecf81239cf3910210"
+							]
+						},
+						"description": "Atualizaçao de cargos"
+					},
+					"response": []
+				},
+				{
+					"name": "EXCLUINDO CARGO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cargos/666395eacf81239cf3910217",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cargos",
+								"666395eacf81239cf3910217"
+							]
+						},
+						"description": "Exclusão de Cargos"
+					},
+					"response": []
+				}
+			],
+			"description": "Criação, exclusão e atualização e buscar de Cargos"
+		},
+		{
+			"name": "FUNCIONARIO",
+			"item": [
+				{
+					"name": "CADASTRO DE FUNCIONARIO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n\"nome\": \"Rafael dias \",\r\n\"cpf\": \"12345678912\",\r\n\"email\": \"rafael.teste@gmail.com\",\r\n\"telefone\": \"61982825598\",\r\n\"dataContratacao\": \"2023-06-07\",\r\n \"dataNascimento\": \"1999-01-03\",\r\n\"genero\": \"Masculino\",\r\n\"endereco\": {\r\n\"cep\": \"7200000\",\r\n\"uf\": \"DF\",\r\n\"logradouro\": \"Quadra\",\r\n\"localidade\": \"brasilia\",\r\n\"bairro\": \"CEILANDIA\",\r\n\"numero\": \"16\",\r\n\"complemento\": \"CASA\"\r\n},\r\n\"cargo\": \"6663955ecf81239cf3910210\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/funcionarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"funcionarios"
+							]
+						},
+						"description": "Criação de Funcionario"
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR FUNCIONARIOS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/funcionarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"funcionarios"
+							]
+						},
+						"description": "Buscar de todos Funcionarios criado"
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR FUNCIONARIO ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/funcionarios/6663d37a0084bad0032c9c37",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"funcionarios",
+								"6663d37a0084bad0032c9c37"
+							]
+						},
+						"description": "Buscar de todos Funcionarios por ID"
+					},
+					"response": []
+				},
+				{
+					"name": "ATUALIZAR FUNCIONARIO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n\"nome\": \"RH\",\r\n\"cpf\": \"00000000011\",\r\n\"email\": \"teste@teste.com\",\r\n\"telefone\": \"61900000001\",\r\n\"dataContratacao\": \"2023-04-02\",\r\n \"dataNascimento\": \"1990-10-30\",\r\n\"genero\": \"Feminino\",\r\n\"endereco\": {\r\n\"cep\": \"7200000\",\r\n\"uf\": \"DF\",\r\n\"logradouro\": \"TESTE\",\r\n\"localidade\": \"TESTE\",\r\n\"bairro\": \"CEILANDIA\",\r\n\"numero\": \"12\",\r\n\"complemento\": \"CASA\"\r\n},\r\n\"cargo\": \"66429dfeb496bdc61df591c7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/funcionarios/6663986acf81239cf391021d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"funcionarios",
+								"6663986acf81239cf391021d"
+							]
+						},
+						"description": "Atualização de Funcionario"
+					},
+					"response": []
+				},
+				{
+					"name": "EXCLUINDO FUNCIONARIO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/funcionarios/66639926cf81239cf3910224",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"funcionarios",
+								"66639926cf81239cf3910224"
+							]
+						},
+						"description": "Exclusão de Funcionario"
+					},
+					"response": []
+				}
+			],
+			"description": "Criação, exclusão e atualização e buscar de Funcionario"
+		},
+		{
+			"name": "CLIENTE",
+			"item": [
+				{
+					"name": "CADASTRO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Manu\",\r\n    \"cpf\": \"12345678912\",\r\n    \"telefone\": \"61952586554\",\r\n    \"endereco\": {\r\n\"cep\": \"7200000\",\r\n\"uf\": \"DF\",\r\n\"logradouro\": \"Quadra\",\r\n\"localidade\": \"brasilia\",\r\n\"bairro\": \"CEILANDIA\",\r\n\"numero\": \"16\",\r\n\"complemento\": \"CASA\"\r\n},\r\n\"email\":\"manu@gmail.com\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR TODOS CLIENTES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clientes"
+							]
+						},
+						"description": "Buscar de todos Clientes"
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR CLIENTE ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/clientes/6663aaabab8f26a9d78818cb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clientes",
+								"6663aaabab8f26a9d78818cb"
+							]
+						},
+						"description": "Buscar de todos Cliente ID"
+					},
+					"response": []
+				},
+				{
+					"name": "ATUALIZAR CLIENTE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"RAFAEL dIAS \",\r\n    \"cpf\": \"12345678912\",\r\n    \"telefone\": \"61952586554\",\r\n    \"endereco\": {\r\n    \"cep\": \"7200000\",\r\n    \"uf\": \"DF\",\r\n    \"logradouro\": \"Quadra\",\r\n    \"localidade\": \"brasilia\",\r\n    \"bairro\": \"CEILANDIA\",\r\n    \"numero\": \"16\",\r\n    \"complemento\": \"CASA\"\r\n},\r\n    \"email\":\"RAFA@gmail.com\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/clientes/6663aaabab8f26a9d78818cb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clientes",
+								"6663aaabab8f26a9d78818cb"
+							]
+						},
+						"description": "Atualização Cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "DELET CADASTRO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/clientes/6663aaabab8f26a9d78818cb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clientes",
+								"6663aaabab8f26a9d78818cb"
+							]
+						},
+						"description": "Exclusão de Cliente"
+					},
+					"response": []
+				}
+			],
+			"description": "Criação, exclusão e atualização e buscar de Cliente"
+		},
+		{
+			"name": "PRODUTOS",
+			"item": [
+				{
+					"name": "CADASTRO_PRODUTO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n {\r\n        \"nome\": \"Tijolo 8 Furos\",\r\n        \"descricao\": \"Tijolo cerâmico com 8 furos, utilizado em alvenarias de vedação.\",\r\n        \"codigo_barras\": \"7891027300021\",\r\n        \"peso\": 0.8,\r\n        \"preco\": 0.85\r\n\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/produtos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos"
+							]
+						},
+						"description": "Criação de Produtos"
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR_PRODUTOS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/produtos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos"
+							]
+						},
+						"description": "Buscar de todos Produtos"
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR_PRODUTOS_ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/produtos/6663c9a25f6e5cc2c496fee2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos",
+								"6663c9a25f6e5cc2c496fee2"
+							]
+						},
+						"description": "Buscar de todos Produtos por ID"
+					},
+					"response": []
+				},
+				{
+					"name": "ATUALIZAR_PRODUTO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nome\": \"Argamassa ACIII\",\r\n        \"descricao\": \"Argamassa de alta performance para revestimentos.\",\r\n        \"codigo_barras\": \"7893456789123\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/produtos/6663c9ac5f6e5cc2c496fee4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos",
+								"6663c9ac5f6e5cc2c496fee4"
+							]
+						},
+						"description": "Atualização de Produto"
+					},
+					"response": []
+				},
+				{
+					"name": "EXCLUIR_PRODUTO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/produtos/6663c9a25f6e5cc2c496fee2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos",
+								"6663c9a25f6e5cc2c496fee2"
+							]
+						},
+						"description": "Exclusão de Produto"
+					},
+					"response": []
+				}
+			],
+			"description": "Criação, exclusão e atualização e buscar de Produtos"
+		},
+		{
+			"name": "PEDIDO",
+			"item": [
+				{
+					"name": "PEDIDO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"funcionario\": \"666a3aa7199684b32a83ad59\",\r\n    \"cliente\" : \"666a3ab2199684b32a83ad5b\",\r\n    \"items\" : [\r\n\r\n        {\"produto\": \"666a40af2b5b9916de7795b1\"\r\n        },\r\n        {\"produto\": \"666a40c02b5b9916de7795b3\"\r\n        }\r\n\r\n    \r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/pedido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pedido"
+							]
+						},
+						"description": "Criação de Pedido"
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR_PEDIDOS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pedido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pedido"
+							]
+						},
+						"description": "Buscar de todos Pedidos"
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR_PEDIDOS_ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pedido/6663d56245c8cceaf27b65e2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pedido",
+								"6663d56245c8cceaf27b65e2"
+							]
+						},
+						"description": "Buscar de todos Pedido Por ID"
+					},
+					"response": []
+				},
+				{
+					"name": "ATUALIZAR_PEDIDO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"funcionario\": \"6663d37a0084bad0032c9c37\",\r\n    \"cliente\" : \"6663d3dd0084bad0032c9c3e\",\r\n    \"produto\" :\"6663c970d638e05059b9ded2\"\r\n        \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/pedido/6663d56245c8cceaf27b65e2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pedido",
+								"6663d56245c8cceaf27b65e2"
+							]
+						},
+						"description": "Atualizar Pedido"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETANDO_PEDIDO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pedido/666a6088f9e3d07b8bca7f4b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pedido",
+								"666a6088f9e3d07b8bca7f4b"
+							]
+						},
+						"description": "Exclusão Pedido"
+					},
+					"response": []
+				}
+			],
+			"description": "Criação, exclusão e atualização e buscar de Pedido"
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiZ3VzdGF2bzMiLCJlbWFpbCI6Imd1c3Rhdm8zQHRlc3RlLmNvbSIsImlhdCI6MTcxODMzODk4NCwiZXhwIjoxNzE4MzM5MDQ0fQ.l54demiS-g_r5dEyPhHtrAgENlMDNO1i7ycy7MwOpfQ",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"value": "",
+			"type": "string"
+		}
+	]
+}

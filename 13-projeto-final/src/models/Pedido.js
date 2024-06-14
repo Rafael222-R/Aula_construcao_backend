@@ -24,7 +24,14 @@ const schema = new mongoose.Schema(
             required: true,
             min: 1
         }
-    }] 
+    }] ,
+
+   valorTotal: {
+    type: Number,
+    required: true
+   }
+
+   
 } , {timestamps : true})
 
 const Pedido = mongoose.model('pedido', schema)

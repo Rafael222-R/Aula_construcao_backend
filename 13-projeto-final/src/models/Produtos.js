@@ -15,6 +15,10 @@ const schema = new mongoose.Schema (
         type: String,
         require: true
     },
+    peso: {
+        type : Number,
+        require: true
+    },
     preco : {
         type : Number,
         require: true
